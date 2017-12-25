@@ -32,6 +32,7 @@ def write_list_to_csv(mylist, filename):
 	csv_path = os.path.join(file_dir, filename)
 	with open(csv_path, 'w') as myfile:
 		wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+		wr.writerow(["count", "word"])
 		for elm in mylist:
 			wr.writerow([elm[0], elm[1]])
 
