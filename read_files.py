@@ -12,10 +12,17 @@ def get_speeches():
         speech_file = os.path.join(speeches_dir, speech)
 
         with open(speech_file, 'r') as speech_file_content:
-            data = speech_file_content.read().replace('\n', '')
+            data = speech_file_content.read()\
+            	.replace('\n', '')\
+            	.replace(',', '')\
+            	.replace('.', '')\
+            	.replace('"', '')\
+            	.replace("'", '')\
+            	.replace(";", '')\
+            	.replace("-", '')
+
             speeches_dict[speech] = data
 
-    print(speeches_dict)
     return speeches_dict
 
 
