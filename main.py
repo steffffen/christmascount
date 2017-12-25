@@ -1,6 +1,6 @@
 import pprint
 
-from read_files import get_speeches
+from read_files import get_speeches, write_list_to_csv
 
 speeches_dict = get_speeches()
 
@@ -42,4 +42,7 @@ def sortFreqDict(freqdict):
     aux.reverse()
     return aux
 
-pprint.pprint(sortFreqDict(count_dict))
+#pprint.pprint(sortFreqDict(count_dict))
+sorted_results = sortFreqDict(count_dict)
+
+write_list_to_csv(sorted_results, 'frequency.csv')
